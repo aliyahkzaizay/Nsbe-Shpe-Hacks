@@ -2,6 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import NSBELogo from "../assets/NSBE.png"
 import SHPELogo from "../assets/SHPE.png"
 import RPILogo from "../assets/RPI.svg"
+import TicketmasterLogo from "../assets/ticketM.png"
+import MathWorksLogo from "../assets/MW.png"
+import CadenceLogo from "../assets/Cadence.png"
+import EYLogo from "../assets/EY1.png"
+import TraneLogo from "../assets/Trane.png"
 
 
 export const Route = createFileRoute("/")({
@@ -131,7 +136,7 @@ function Index() {
 
           {/* INFO */}
          {/* EVENT INFO */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
+      <section id="event-info" className="max-w-7xl mx-auto px-6 py-16 scroll-mt-24">
 
             <div className="grid md:grid-cols-3 gap-6">
 
@@ -184,42 +189,38 @@ function Index() {
                 </div>
             ))}
             </div>
+
+            <div className="mt-8 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <p className="font-mono text-sm text-primary mb-3">
+                  &gt; who_we_are.txt
+                </p>
+                <h2 className="text-2xl font-bold">Who is NSH @ RPI?</h2>
+                <p className="mt-4 text-muted-foreground">
+                  NSH @ RPI is a student-led weekend hackathon hosted by the
+                  NSBE and SHPE chapters at Rensselaer Polytechnic Institute.
+                  We bring builders together to learn, create, and solve real
+                  problems with support from mentors, workshops, and sponsors.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <p className="font-mono text-sm text-primary mb-3">
+                  &gt; hackathon_101.md
+                </p>
+                <h2 className="text-2xl font-bold">What is a hackathon?</h2>
+                <p className="mt-4 text-muted-foreground">
+                  A hackathon is a collaborative build event where students form
+                  teams, choose a problem, and create a project in a short
+                  amount of time. You do not need to be an expert to join.
+                  Hackathons are about learning fast, trying ideas, and building
+                  something you can demo.
+                </p>
+              </div>
+            </div>
             </section>
         </div>
       </section>
-
-
-
-      {/* PRESENTED BY */}
-      <section className="max-w-7xl mx-auto px-6 py-16 text-center">
-
-        <p className="text-sm uppercase tracking-widest text-muted-foreground mb-8">
-          Presented By
-        </p>
-
-
-        <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-
-        <img
-                src={NSBELogo}
-                alt="NSBE Logo"
-                className="w-40 h-40 object-contain"
-                />
-
-                 <img
-                src={SHPELogo}
-                alt="NSBE Logo"
-                className="w-40 h-40 object-contain"
-                />
-                 <img
-                src={RPILogo}
-                alt="NSBE Logo"
-                className="w-40 h-40 object-contain"
-                />
-
-        </div>
-      </section>
-
 
 
       {/* THEME REVEAL */}
@@ -268,106 +269,6 @@ function Index() {
           </div>
         */}
 
-        <div className="max-w-5xl mx-auto terminal-window p-8 md:p-12 text-center">
-
-          <p className="text-sm uppercase tracking-widest text-accent mb-4">
-            Schedule Coming Soon
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Schedule to be revealed closer to the event date.
-          </h2>
-
-          <p className="mt-5 max-w-2xl mx-auto text-lg text-muted-foreground">
-            We are finalizing workshops, mentor hours, meals, judging blocks,
-            and sponsor programming.
-          </p>
-
-          <div className="mt-8 border border-border bg-background/55 p-5 text-left">
-
-            <div className="text-xs uppercase tracking-widest text-accent">
-              Weekend Hackathon
-            </div>
-
-            <p className="mt-3 text-lg font-bold">
-              2 days, Saturday through Sunday
-            </p>
-
-            <p className="mt-2 text-muted-foreground">
-              The hackathon is planned to begin Saturday at 9:00 AM,
-              continue overnight, and wrap Sunday around 3:00-4:00 PM.
-            </p>
-          </div>
-
-          <Link
-            to="/schedule"
-            className="inline-block mt-8 px-6 py-3 border border-primary bg-primary text-primary-foreground font-bold uppercase hover:opacity-90 transition"
-            style={{ boxShadow: "var(--shadow-glow)" }}
-          >
-            [ View Schedule Page ]
-          </Link>
-        </div>
-      </section>
-
-
-
-      {/* PRIZES */}
-      <section id="prizes" className="max-w-7xl mx-auto px-6 py-20">
-
-        <p className="text-sm uppercase tracking-widest text-muted-foreground text-center mb-3">
-          Awards
-        </p>
-
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          Prizes & Awards
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-
-          {[
-            {
-              place: "1st Place",
-              prize: "Prize TBD",
-              gradient: "from-shpe to-amber",
-            },
-            {
-              place: "2nd Place",
-              prize: "Prize TBD",
-              gradient: "from-muted-foreground to-secondary",
-            },
-            {
-              place: "3rd Place",
-              prize: "Prize TBD",
-              gradient: "from-rpi to-destructive",
-            },
-          ].map((award) => (
-
-            <div
-              key={award.place}
-              className={`border border-border bg-gradient-to-br ${award.gradient} p-8 text-primary-foreground text-center transition hover:-translate-y-1`}
-            >
-
-              <TrophyIcon className="w-16 h-16 mx-auto mb-5" />
-
-              <h3 className="text-2xl font-bold mb-2">
-                {award.place}
-              </h3>
-
-              <p className="text-4xl font-bold mb-4">
-                {award.prize}
-              </p>
-
-              {/* <p className="opacity-90">
-                Plus tech prizes from sponsors
-              </p> */}
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-10 max-w-3xl mx-auto text-center text-lg text-muted-foreground">
-          Additional category prizes including Best AI/ML Project,
-          Best Social Impact, Best Design, and more!
-        </p>
       </section>
 
 
@@ -408,24 +309,22 @@ function Index() {
 
             <div>
 
-              <p className="text-sm uppercase tracking-widest text-accent mb-4">
-                Sponsor Outreach Begins June 2026
-              </p>
 
               <h2 className="text-4xl md:text-5xl font-bold">
                 Partner with NSBE × SHPE Hacks
               </h2>
 
               <p className="mt-5 text-lg text-muted-foreground">
-                We are preparing our sponsorship packet, pitch deck,
-                and event details for companies interested in supporting
-                student builders at RPI.
+              Partner with us to support diverse talent, foster innovation <br></br>
+              and create meaningful opportunities for students in STEM.
               </p>
+
+              <PastSponsorMarquee />
 
               <div className="mt-8 flex flex-wrap gap-3">
 
                 <a
-                  href="mailto:rpinsbehackathondirector@gmail.com?subject=NSBE%20x%20SHPE%20Hackathon%20Sponsorship"
+                  href="mailto:nshrpi.director@gmail.com?subject=NSBE%20x%20SHPE%20Hackathon%20Sponsorship"
                   className="px-6 py-3 border border-primary bg-primary text-primary-foreground font-bold uppercase hover:opacity-90 transition"
                   style={{ boxShadow: "var(--shadow-glow)" }}
                 >
@@ -597,6 +496,37 @@ function SponsorTier({ title, sizeClass, count }) {
   );
 }
 */
+
+
+
+const pastSponsorLogos = [
+  { name: "Ticketmaster", logo: TicketmasterLogo, className: "max-h-9" },
+  { name: "MathWorks", logo: MathWorksLogo, className: "max-h-10" },
+  { name: "Cadence", logo: CadenceLogo, className: "max-h-10" },
+  { name: "EY", logo: EYLogo, className: "max-h-12" },
+  { name: "Trane Technologies", logo: TraneLogo, className: "max-h-12" },
+];
+
+
+
+function PastSponsorMarquee() {
+  const marqueeLogos = [...pastSponsorLogos, ...pastSponsorLogos];
+
+  return (
+    <div className="mt-8 overflow-hidden border-y border-border py-5">
+      <div className="flex w-max items-center gap-10 home-sponsor-marquee">
+        {marqueeLogos.map((sponsor, index) => (
+          <img
+            key={`${sponsor.name}-${index}`}
+            src={sponsor.logo}
+            alt={`${sponsor.name} logo`}
+            className={`w-40 object-contain opacity-80 grayscale transition hover:opacity-100 hover:grayscale-0 ${sponsor.className}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 
 

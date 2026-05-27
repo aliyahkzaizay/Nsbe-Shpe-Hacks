@@ -15,7 +15,10 @@ import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as PrizesRouteImport } from './routes/prizes'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as NSHx26RouteImport } from './routes/NSHx26'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NSHx26WinnersRouteImport } from './routes/NSHx26.winners'
+import { Route as NSHx26PicturesRouteImport } from './routes/NSHx26.pictures'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
@@ -47,65 +50,106 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NSHx26Route = NSHx26RouteImport.update({
+  id: '/NSHx26',
+  path: '/NSHx26',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NSHx26WinnersRoute = NSHx26WinnersRouteImport.update({
+  id: '/winners',
+  path: '/winners',
+  getParentRoute: () => NSHx26Route,
+} as any)
+const NSHx26PicturesRoute = NSHx26PicturesRouteImport.update({
+  id: '/pictures',
+  path: '/pictures',
+  getParentRoute: () => NSHx26Route,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/NSHx26': typeof NSHx26RouteWithChildren
   '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
+  '/NSHx26/pictures': typeof NSHx26PicturesRoute
+  '/NSHx26/winners': typeof NSHx26WinnersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/NSHx26': typeof NSHx26RouteWithChildren
   '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
+  '/NSHx26/pictures': typeof NSHx26PicturesRoute
+  '/NSHx26/winners': typeof NSHx26WinnersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/NSHx26': typeof NSHx26RouteWithChildren
   '/faq': typeof FaqRoute
   '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
   '/team': typeof TeamRoute
+  '/NSHx26/pictures': typeof NSHx26PicturesRoute
+  '/NSHx26/winners': typeof NSHx26WinnersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/NSHx26'
     | '/faq'
     | '/home'
     | '/prizes'
     | '/schedule'
     | '/sponsors'
     | '/team'
+    | '/NSHx26/pictures'
+    | '/NSHx26/winners'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faq' | '/home' | '/prizes' | '/schedule' | '/sponsors' | '/team'
+  to:
+    | '/'
+    | '/NSHx26'
+    | '/faq'
+    | '/home'
+    | '/prizes'
+    | '/schedule'
+    | '/sponsors'
+    | '/team'
+    | '/NSHx26/pictures'
+    | '/NSHx26/winners'
   id:
     | '__root__'
     | '/'
+    | '/NSHx26'
     | '/faq'
     | '/home'
     | '/prizes'
     | '/schedule'
     | '/sponsors'
     | '/team'
+    | '/NSHx26/pictures'
+    | '/NSHx26/winners'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NSHx26Route: typeof NSHx26RouteWithChildren
   FaqRoute: typeof FaqRoute
   HomeRoute: typeof HomeRoute
   PrizesRoute: typeof PrizesRoute
@@ -158,6 +202,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/NSHx26': {
+      id: '/NSHx26'
+      path: '/NSHx26'
+      fullPath: '/NSHx26'
+      preLoaderRoute: typeof NSHx26RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -165,11 +216,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/NSHx26/winners': {
+      id: '/NSHx26/winners'
+      path: '/winners'
+      fullPath: '/NSHx26/winners'
+      preLoaderRoute: typeof NSHx26WinnersRouteImport
+      parentRoute: typeof NSHx26Route
+    }
+    '/NSHx26/pictures': {
+      id: '/NSHx26/pictures'
+      path: '/pictures'
+      fullPath: '/NSHx26/pictures'
+      preLoaderRoute: typeof NSHx26PicturesRouteImport
+      parentRoute: typeof NSHx26Route
+    }
   }
 }
 
+interface NSHx26RouteChildren {
+  NSHx26PicturesRoute: typeof NSHx26PicturesRoute
+  NSHx26WinnersRoute: typeof NSHx26WinnersRoute
+}
+
+const NSHx26RouteChildren: NSHx26RouteChildren = {
+  NSHx26PicturesRoute: NSHx26PicturesRoute,
+  NSHx26WinnersRoute: NSHx26WinnersRoute,
+}
+
+const NSHx26RouteWithChildren =
+  NSHx26Route._addFileChildren(NSHx26RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NSHx26Route: NSHx26RouteWithChildren,
   FaqRoute: FaqRoute,
   HomeRoute: HomeRoute,
   PrizesRoute: PrizesRoute,

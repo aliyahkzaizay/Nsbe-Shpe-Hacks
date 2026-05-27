@@ -1,2 +1,2 @@
 # Nsbe-Shpe-Hacks
-Official Repo for NSH @RPI_
+Official Repo for NSH @RPI_ls

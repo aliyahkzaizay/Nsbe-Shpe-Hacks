@@ -1,12 +1,21 @@
 import { useState } from "react";
 import Logo from "../../assets/logo.svg";
+
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/schedule", label: "Schedule" },
-  { href: "/prizes", label: "Prizes" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/team", label: "Team" },
   { href: "/#faq", label: "FAQ" },
+];
+
+const eventLinks = [
+  { href: "/#event-info", label: "Event Info" },
+  { href: "/schedule", label: "Schedule" },
+  { href: "/prizes", label: "Prizes" },
+];
+
+const nshx26Links = [
+  { href: "/NSHx26/winners", label: "Winners" },
+  { href: "/NSHx26/winners#pictures", label: "Pictures" },
 ];
 
 export function Navbar() {
@@ -30,6 +39,59 @@ export function Navbar() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-2">
+          <a
+            href="/"
+            className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition"
+          >
+            Home
+          </a>
+
+          <div className="relative group">
+            <button
+              type="button"
+              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition"
+            >
+              Events
+            </button>
+
+            <div className="absolute left-0 top-full hidden min-w-44 pt-2 group-hover:block group-focus-within:block">
+              <div className="rounded-lg border border-border bg-background/95 p-2 shadow-lg backdrop-blur-xl">
+                {eventLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground transition"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="relative group">
+            <button
+              type="button"
+              className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition"
+            >
+              NSHx26
+            </button>
+
+            <div className="absolute left-0 top-full hidden min-w-44 pt-2 group-hover:block group-focus-within:block">
+              <div className="rounded-lg border border-border bg-background/95 p-2 shadow-lg backdrop-blur-xl">
+                {nshx26Links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground transition"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -61,11 +123,52 @@ export function Navbar() {
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="px-6 py-4 flex flex-col gap-2">
+            <a
+              href="/"
+              className="text-muted-foreground hover:text-foreground py-2"
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </a>
+
+            <div className="border-y border-border/70 py-2">
+              <div className="text-xs uppercase text-muted-foreground mb-1">
+                Events
+              </div>
+              {eventLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block text-muted-foreground hover:text-foreground py-2 pl-3"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="border-b border-border/70 py-2">
+              <div className="text-xs uppercase text-muted-foreground mb-1">
+                NSHx26
+              </div>
+              {nshx26Links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block text-muted-foreground hover:text-foreground py-2 pl-3"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 className="text-muted-foreground hover:text-foreground py-2"
+                onClick={() => setOpen(false)}
               >
                 {link.label}
               </a>

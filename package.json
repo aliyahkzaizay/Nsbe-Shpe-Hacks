@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "generate:pictures": "node scripts/generate-picture-showcase.mjs",
+    "predev": "npm run generate:pictures",
     "dev": "vite",
+    "prebuild": "npm run generate:pictures",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

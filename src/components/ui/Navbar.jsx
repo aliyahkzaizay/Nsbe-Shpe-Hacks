@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Logo from "../../assets/logo.svg";
 
 const navLinks = [
   { href: "/sponsors", label: "Sponsors" },
@@ -26,15 +25,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* LOGO */}
         <div className="flex items-center">
-          <img
-            src={Logo}
-            alt="NSH @RPI logo"
-            className="h-10 w-auto object-contain"
-          />
-
-          {/* <span className="text-foreground font-bold text-lg">
-                NSH @ RPI_
-            </span> */}
+          <a
+            href="/"
+            className="font-mono text-2xl font-bold tracking-normal text-foreground transition hover:text-cyan"
+          >
+            NSH @<span className="text-rpi">RPI</span>
+            <span className="text-primary">_</span>
+          </a>
         </div>
 
         {/* DESKTOP NAV */}

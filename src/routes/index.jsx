@@ -372,48 +372,91 @@ function Index() {
 
 
       {/* FAQ */}
-      <section id="faq" className="max-w-5xl mx-auto px-6 py-20">
+      <section
+        id="faq"
+        className="relative scroll-mt-24 overflow-hidden border-y border-border bg-[radial-gradient(circle_at_18%_12%,rgb(82_215_255_/_10%),transparent_24rem),radial-gradient(circle_at_82%_18%,rgb(246_196_69_/_9%),transparent_24rem),linear-gradient(180deg,rgb(17_29_33_/_46%),rgb(5_7_7_/_78%))] px-6 py-20"
+      >
 
-        <p className="text-sm uppercase tracking-widest text-muted-foreground text-center mb-3">
-          Details
-        </p>
+        <div className="mx-auto max-w-6xl">
+        
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            Frequently Asked Questions
+          </h2>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
-          Frequently Asked Questions
-        </h2>
-
-        <div className="space-y-4">
-
-          {[
-            [
-              "Who can participate?",
-              "All college students are welcome! You don't need to be a member of NSBE or SHPE to participate.",
-            ],
-            [
-              "What should I bring?",
-              "Bring your laptop, chargers, and any other hardware you'll need. We'll provide WiFi, food, and workspace!",
-            ],
-            [
-              "Do I need a team?",
-              "Teams of 2-4 are recommended, but you can also participate solo or find a team at the event.",
-            ],
-            [
-              "Is there a cost to participate?",
-              "No! The event is completely free, including meals, workshops, and swag.",
-            ],
-            [
-              "What if I'm a beginner?",
-              "We welcome hackers of all skill levels! We'll have workshops and mentors to help you learn.",
-            ],
-           
-          ].map(([question, answer]) => (
-
-            <FAQItem
-              key={question}
-              question={question}
-              answer={answer}
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <FAQGroup
+              title="General"
+              accent="text-cyan"
+              questions={[
+                {
+                  question: "Still have questions?",
+                  answer: (
+                    <>
+                      Please reach out to us at{" "}
+                      <a
+                        href="mailto:nshrpi.director@gmail.com"
+                        className="text-amber underline underline-offset-4 hover:text-foreground transition"
+                      >
+                        nshrpi.director@gmail.com
+                      </a>
+                      . We are happy to help.
+                    </>
+                  ),
+                },
+                {
+                  question: "Can I start my project before the hackathon?",
+                  answer:
+                    "You cannot work on a project you started before the hackathon. Ideation before the hackathon is allowed, but all implementation must happen during the hackathon.",
+                },
+                {
+                  question: "How many people can be on a single team?",
+                  answer: "Up to 4 people can be part of a single team.",
+                },
+                {
+                  question: "What should I bring?",
+                  answer:
+                    "Bring your laptop, chargers, and any hardware you plan to use. We will provide WiFi, food, workspace, and event programming.",
+                },
+                {
+                  question: "What if I am a beginner?",
+                  answer:
+                    "Beginners are welcome. We will have workshops, mentors, and space to learn while building.",
+                },
+              ]}
             />
-          ))}
+
+            <FAQGroup
+              title="Registration"
+              accent="text-amber"
+              questions={[
+                {
+                  question: "Who can apply?",
+                  answer:
+                    "NSH @ RPI is open to undergraduate and graduate students, students at nearby colleges in New York's Capital Region, and anyone who graduated within the past year after Fall 2025.",
+                },
+                {
+                  question: "How do I apply?",
+                  answer:
+                    "Applications will open in October 2026. When applications go live, we will share the Devpost link.",
+                },
+                {
+                  question: "Is there a cost to participate?",
+                  answer:
+                    "No. The event is free for accepted participants, including meals, workshops, and swag.",
+                },
+                {
+                  question: "Do I need to be part of NSBE or SHPE?",
+                  answer:
+                    "No. You do not need to be a member of NSBE or SHPE to participate.",
+                },
+                {
+                  question: "If I graduated, can I be a mentor or judge?",
+                  answer:
+                    "Yes. Mentor and judge applications will be shared later through a separate link.",
+                },
+              ]}
+            />
+          </div>
         </div>
       </section>
 
@@ -530,18 +573,48 @@ function PastSponsorMarquee() {
 
 
 
+function FAQGroup({ title, accent, questions }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card/55 p-5 shadow-[0_24px_80px_rgb(0_0_0_/_22%)] backdrop-blur-xl md:p-6">
+      <div className="mb-5 flex items-center gap-3">
+        <div className="size-2.5 rounded-full bg-current text-primary" />
+        <h3 className={`font-mono text-2xl font-bold ${accent}`}>
+          {title}
+        </h3>
+      </div>
+
+      <div className="space-y-3">
+        {questions.map((item) => (
+          <FAQItem
+            key={item.question}
+            question={item.question}
+            answer={item.answer}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+
 function FAQItem({ question, answer }) {
   return (
-    <div className="border border-border bg-card p-6">
+    <details className="group rounded-xl border border-border bg-background/45 p-4 transition open:border-cyan/35 open:bg-background/70">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+        <span className="text-lg font-bold text-foreground">
+          {question}
+        </span>
 
-      <h3 className="text-xl font-bold text-foreground">
-        {question}
-      </h3>
+        <span className="font-mono text-2xl leading-none text-amber transition group-open:rotate-45">
+          +
+        </span>
+      </summary>
 
-      <p className="mt-3 text-muted-foreground">
+      <p className="mt-3 leading-6 text-muted-foreground">
         {answer}
       </p>
-    </div>
+    </details>
   );
 }
 

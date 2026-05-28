@@ -103,18 +103,7 @@ function PrizesPage() {
         ))}
       </div>
 
-      <div className="mt-16 rounded-2xl border border-border bg-card p-8 text-center">
-        <h3 className="text-2xl font-bold">Think you can win?</h3>
-        <p className="mt-2 text-muted-foreground">
-          Applications open October 2026 for the January 2027 hackathon.
-        </p>
-        <a
-          href="/#register"
-          className="inline-block mt-5 px-6 py-3 rounded-md bg-primary text-primary-foreground font-semibold hover:opacity-90 transition"
-        >
-          Register Now
-        </a>
-      </div>
+
     </div>
   );
 }

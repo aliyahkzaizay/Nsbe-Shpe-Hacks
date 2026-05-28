@@ -49,7 +49,7 @@ function Index() {
 
                 :
 
-                <span className="text-accent">
+                <span className="text-cyan">
                   ~/2027
                 </span>
 
@@ -68,7 +68,7 @@ function Index() {
 
 
               <p className="text-xs md:text-sm text-muted-foreground">
-                &gt; event: January 2027
+                &gt; event: Jan. 30-31st 2027
               </p>
 
 
@@ -125,7 +125,7 @@ function Index() {
 
                 <a
                   href="#sponsors"
-                  className="px-6 py-3 border border-primary/60 bg-transparent text-primary font-bold uppercase hover:bg-primary hover:text-primary-foreground transition"
+                  className="px-6 py-3 border border-amber/70 bg-transparent text-amber font-bold uppercase hover:bg-amber hover:text-accent-foreground transition"
                 >
                   [ Become a Sponsor ]
                 </a>
@@ -143,7 +143,7 @@ function Index() {
             {[
                 {
                 title: "When",
-                body: "January 2027",
+                body: "January 30-31st 2027",
                 sub: "Saturday 9am → Sunday 3pm",
                 },
 
@@ -170,8 +170,8 @@ function Index() {
                     i === 0
                         ? "bg-nsbe"
                         : i === 1
-                        ? "bg-shpe"
-                        : "bg-rpi"
+                        ? "bg-cyan"
+                        : "bg-amber"
                     }`}
                 />
 
@@ -192,7 +192,7 @@ function Index() {
 
             <div className="mt-8 grid gap-6 lg:grid-cols-2">
               <div className="rounded-2xl border border-border bg-card p-6">
-                <p className="font-mono text-sm text-primary mb-3">
+                <p className="font-mono text-sm text-cyan mb-3">
                   &gt; who_we_are.txt
                 </p>
                 <h2 className="text-2xl font-bold">Who is NSH @ RPI?</h2>
@@ -205,7 +205,7 @@ function Index() {
               </div>
 
               <div className="rounded-2xl border border-border bg-card p-6">
-                <p className="font-mono text-sm text-primary mb-3">
+                <p className="font-mono text-sm text-amber mb-3">
                   &gt; hackathon_101.md
                 </p>
                 <h2 className="text-2xl font-bold">What is a hackathon?</h2>
@@ -224,7 +224,7 @@ function Index() {
 
 
       {/* THEME REVEAL */}
-      <ThemeReveal />
+      {/* <ThemeReveal /> */}
 
 
       {/* SCHEDULE */}
@@ -335,7 +335,7 @@ function Index() {
                   href="/sponsorship-packet-2027.pdf"
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-3 border border-border bg-transparent font-bold uppercase hover:bg-secondary transition"
+                  className="px-6 py-3 border border-cyan/50 bg-transparent text-cyan font-bold uppercase hover:bg-cyan hover:text-background transition"
                 >
                   [ View Sponsorship Packet ]
                 </a>
@@ -424,7 +424,7 @@ function Index() {
 
         <div className="terminal-window p-10 md:p-16 text-center">
 
-          <h2 className="text-3xl md:text-5xl font-bold text-primary">
+          <h2 className="text-3xl md:text-5xl font-bold text-amber">
             {/* Ready to build? */}
 
             &gt; Applications open October 2026_

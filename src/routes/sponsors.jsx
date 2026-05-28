@@ -66,7 +66,7 @@ const sponsorPacket = {
 function SponsorsPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <p className="font-mono text-sm text-primary mb-3">
+      <p className="font-mono text-sm text-cyan mb-3">
         &gt; sponsor_archive.exe
       </p>
       <h1 className="text-4xl md:text-5xl font-bold">Past Sponsors</h1>
@@ -78,7 +78,7 @@ function SponsorsPage() {
         View our sponsorship opportunities or{" "}
         <a
           href="mailto:nshrpi.director@gmail.com?subject=NSBE%20x%20SHPE%20Hackathon%20Sponsorship"
-          className="text-primary underline underline-offset-4 hover:text-foreground transition"
+          className="text-amber underline underline-offset-4 hover:text-foreground transition"
         >
           contact us
         </a>{" "}
@@ -89,7 +89,7 @@ function SponsorsPage() {
         {sponsorYears.map((group) => (
           <section key={group.year}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="size-3 rounded-full bg-primary" />
+              <div className="size-3 rounded-full bg-cyan" />
               <h2 className="text-2xl font-bold">{group.year}</h2>
             </div>
 
@@ -97,7 +97,7 @@ function SponsorsPage() {
               {group.sponsors.map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className="min-h-32 flex items-center justify-center rounded-xl border border-border bg-card p-6"
+                  className="min-h-32 flex items-center justify-center rounded-xl border border-border bg-offwhite/[0.04] p-6 transition hover:border-amber/45"
                 >
                   <img
                     src={sponsor.logo}
@@ -148,7 +148,7 @@ function SponsorPacketViewer() {
           <div className="flex items-center gap-2">
             <span className="size-3 rounded-full bg-rpi" />
             <span className="size-3 rounded-full bg-shpe" />
-            <span className="size-3 rounded-full bg-primary" />
+            <span className="size-3 rounded-full bg-cyan" />
           </div>
 
           <div className="font-mono text-xs text-muted-foreground">
@@ -175,7 +175,7 @@ function SponsorPacketViewer() {
               <button
                 type="button"
                 onClick={() => goToPage("previous")}
-                className="flex-1 rounded-md border border-border px-4 py-3 font-mono text-sm text-foreground hover:border-primary/50 hover:bg-background transition"
+                className="flex-1 rounded-md border border-border px-4 py-3 font-mono text-sm text-foreground hover:border-cyan/50 hover:bg-background transition"
                 aria-label="Previous sponsorship packet page"
               >
                 ← Prev
@@ -183,7 +183,7 @@ function SponsorPacketViewer() {
               <button
                 type="button"
                 onClick={() => goToPage("next")}
-                className="flex-1 rounded-md border border-border px-4 py-3 font-mono text-sm text-foreground hover:border-primary/50 hover:bg-background transition"
+                className="flex-1 rounded-md border border-border px-4 py-3 font-mono text-sm text-foreground hover:border-cyan/50 hover:bg-background transition"
                 aria-label="Next sponsorship packet page"
               >
                 Next →
@@ -198,7 +198,7 @@ function SponsorPacketViewer() {
               href={sponsorPacket.path}
               target="_blank"
               rel="noreferrer"
-              className="mt-4 block rounded-md bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground hover:opacity-90 transition"
+              className="mt-4 block rounded-md bg-amber px-4 py-3 text-center text-sm font-semibold text-accent-foreground hover:opacity-90 transition"
             >
               Open PDF
             </a>

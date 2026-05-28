@@ -10,10 +10,10 @@ const quickLinks = [
 ];
 
 const followLinks = [
-  { href: "#", label: "Devpost" },
+  // { href: "#", label: "Devpost" },
   { href: "https://www.instagram.com/rpinsbeshpe_hacks/", label: "Instagram" },
-  { href: "#", label: "YouTube" },
-  { href: "#", label: "Discord" },
+  // { href: "#", label: "YouTube" },
+  // { href: "#", label: "Discord" },
 ];
 
 export function Footer() {
@@ -47,7 +47,7 @@ export function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                className="w-fit hover:text-foreground transition"
+                className="w-fit hover:text-cyan transition"
               >
                 {link.label}
               </a>
@@ -66,19 +66,19 @@ export function Footer() {
                 href={link.href}
                 target={link.href === "#" ? undefined : "_blank"}
                 rel={link.href === "#" ? undefined : "noreferrer"}
-                className="w-fit hover:text-foreground transition"
+                className="w-fit hover:text-amber transition"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <a
+          {/* <a
             href="#"
             className="mt-5 inline-block rounded-md border border-primary/60 px-4 py-2 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition"
           >
             Join our Discord
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>

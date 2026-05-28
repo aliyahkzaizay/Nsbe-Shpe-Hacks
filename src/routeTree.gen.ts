@@ -13,8 +13,6 @@ import { Route as TeamRouteImport } from './routes/team'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as PrizesRouteImport } from './routes/prizes'
-import { Route as HomeRouteImport } from './routes/home'
-import { Route as FaqRouteImport } from './routes/faq'
 import { Route as NSHx26RouteImport } from './routes/NSHx26'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NSHx26WinnersRouteImport } from './routes/NSHx26.winners'
@@ -38,16 +36,6 @@ const ScheduleRoute = ScheduleRouteImport.update({
 const PrizesRoute = PrizesRouteImport.update({
   id: '/prizes',
   path: '/prizes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NSHx26Route = NSHx26RouteImport.update({
@@ -74,8 +62,6 @@ const NSHx26PicturesRoute = NSHx26PicturesRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/NSHx26': typeof NSHx26RouteWithChildren
-  '/faq': typeof FaqRoute
-  '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
@@ -86,8 +72,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/NSHx26': typeof NSHx26RouteWithChildren
-  '/faq': typeof FaqRoute
-  '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
@@ -99,8 +83,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/NSHx26': typeof NSHx26RouteWithChildren
-  '/faq': typeof FaqRoute
-  '/home': typeof HomeRoute
   '/prizes': typeof PrizesRoute
   '/schedule': typeof ScheduleRoute
   '/sponsors': typeof SponsorsRoute
@@ -113,8 +95,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/NSHx26'
-    | '/faq'
-    | '/home'
     | '/prizes'
     | '/schedule'
     | '/sponsors'
@@ -125,8 +105,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/NSHx26'
-    | '/faq'
-    | '/home'
     | '/prizes'
     | '/schedule'
     | '/sponsors'
@@ -137,8 +115,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/NSHx26'
-    | '/faq'
-    | '/home'
     | '/prizes'
     | '/schedule'
     | '/sponsors'
@@ -150,8 +126,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   NSHx26Route: typeof NSHx26RouteWithChildren
-  FaqRoute: typeof FaqRoute
-  HomeRoute: typeof HomeRoute
   PrizesRoute: typeof PrizesRoute
   ScheduleRoute: typeof ScheduleRoute
   SponsorsRoute: typeof SponsorsRoute
@@ -186,20 +160,6 @@ declare module '@tanstack/react-router' {
       path: '/prizes'
       fullPath: '/prizes'
       preLoaderRoute: typeof PrizesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/NSHx26': {
@@ -249,8 +209,6 @@ const NSHx26RouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NSHx26Route: NSHx26RouteWithChildren,
-  FaqRoute: FaqRoute,
-  HomeRoute: HomeRoute,
   PrizesRoute: PrizesRoute,
   ScheduleRoute: ScheduleRoute,
   SponsorsRoute: SponsorsRoute,

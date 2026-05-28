@@ -88,7 +88,7 @@ function WinnersPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <p className="font-mono text-sm text-primary mb-3">&gt; winners.log</p>
+      <p className="font-mono text-sm text-cyan mb-3">&gt; winners.log</p>
       <h1 className="text-4xl md:text-5xl font-bold">
         Winner projects from NSH 2026
       </h1>
@@ -101,7 +101,7 @@ function WinnersPage() {
 
       <section className="mt-16">
         <div className="flex items-center gap-3">
-          <div className="size-3 rounded-full border border-primary/70 bg-background" />
+          <div className="size-3 rounded-full border border-amber/70 bg-background" />
           <h2 className="text-2xl font-bold">Track Winners</h2>
         </div>
 
@@ -127,7 +127,7 @@ function WinnersPage() {
                 </div>
 
                 <div className="p-5">
-                  <div className="font-mono text-xs uppercase tracking-widest text-primary">
+                  <div className="font-mono text-xs uppercase tracking-widest text-amber">
                     {track.track}
                   </div>
                   <div className="mt-3 text-xl font-bold">{track.project}</div>
@@ -149,7 +149,7 @@ function WinnersPage() {
 
       <section id="pictures" className="mt-16 scroll-mt-24">
         <div className="flex items-center gap-3">
-          <div className="size-3 rounded-full border border-primary/70 bg-background" />
+          <div className="size-3 rounded-full border border-cyan/70 bg-background" />
           <h2 className="text-2xl font-bold">Picture Showcase</h2>
         </div>
 
@@ -161,8 +161,8 @@ function WinnersPage() {
               onClick={() => setActivePictureTab(tab.id)}
               className={`rounded-md border px-4 py-2 font-mono text-sm transition ${
                 activePictureTab === tab.id
-                  ? "border-primary/60 bg-card text-foreground"
-                  : "border-border text-muted-foreground hover:bg-card hover:text-foreground"
+                  ? "border-cyan/60 bg-card text-foreground"
+                  : "border-border text-muted-foreground hover:border-amber/35 hover:bg-card hover:text-foreground"
               }`}
             >
               {tab.label}
@@ -204,7 +204,7 @@ function WinnerProjectCard({ project }) {
     <article className="overflow-hidden rounded-2xl border border-border bg-card">
       <div className="grid lg:grid-cols-[15rem_1fr]">
         <div className="border-b border-border bg-background/70 p-6 lg:border-b-0 lg:border-r">
-          <div className="font-mono text-sm text-primary">rank</div>
+          <div className="font-mono text-sm text-amber">rank</div>
           <div className="mt-2 text-5xl font-bold">{project.rank}</div>
           <div className="mt-6 rounded-lg border border-border bg-card p-4">
             <div className="font-mono text-xs text-muted-foreground">

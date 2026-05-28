@@ -94,14 +94,14 @@ function SchedulePage() {
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
 
           {[
-            "Workshops",
-            "Meals",
-            "Judging",
-          ].map((item) => (
+            ["Workshops", "border-cyan/40"],
+            ["Meals", "border-amber/40"],
+            ["Judging", "border-rpi/50"],
+          ].map(([item, colorClass]) => (
 
             <div
               key={item}
-              className="border border-border bg-background/55 p-4"
+              className={`border ${colorClass} bg-background/55 p-4`}
             >
               <div className="text-xs uppercase tracking-widest text-muted-foreground">
                 Included

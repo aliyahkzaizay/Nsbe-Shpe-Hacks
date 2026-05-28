@@ -23,12 +23,12 @@ const podium = [
   {
     place: "2nd",
     prize: "To be announced",
-    color: "bg-card text-foreground border border-border",
+    color: "bg-cyan text-background",
   },
   {
     place: "3rd",
     prize: "To be announced",
-    color: "bg-rpi text-white",
+    color: "bg-amber text-accent-foreground",
   },
 ];
 
@@ -68,7 +68,7 @@ const tracks = [
 function PrizesPage() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
-      <p className="font-mono text-sm text-primary mb-3">
+      <p className="font-mono text-sm text-amber mb-3">
         &gt; prize_pool.exe
       </p>
       <h1 className="text-4xl md:text-5xl font-bold">Prizes</h1>
@@ -94,10 +94,10 @@ function PrizesPage() {
         {tracks.map((t) => (
           <div
             key={t.name}
-            className="rounded-xl border border-border bg-card p-6 hover:border-primary/40 transition"
+            className="rounded-xl border border-border bg-card p-6 hover:border-cyan/50 transition"
           >
             <div className="font-semibold">{t.name}</div>
-            <div className="text-sm text-primary mt-1">{t.prize}</div>
+            <div className="text-sm text-amber mt-1">{t.prize}</div>
             <p className="text-sm text-muted-foreground mt-3">{t.desc}</p>
           </div>
         ))}

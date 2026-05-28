@@ -49,8 +49,7 @@ const teamYears = [
             name: "Abigail Gutierrez",
             role: "Marketing Lead",
             org: "SHPE Webmaster",
-            quote:
-              "",
+            headshot:"/team/2027/AbigailG.jpeg",
             linkedin: "https://www.linkedin.com/in/abigailgutierrez5/",
           },
           {
@@ -110,16 +109,12 @@ function TeamPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
-      <p className="font-mono text-sm text-primary mb-3">
+      <p className="font-mono text-sm text-cyan mb-3">
         &gt; organizing_team.exe
       </p>
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <h1 className="text-4xl md:text-5xl font-bold">Meet the Team</h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl">
-            Browse the student teams behind NSBE x SHPE Hacks programming at
-            RPI.
-          </p>
         </div>
 
         <a
@@ -139,14 +134,14 @@ function TeamPage() {
               onClick={() => setSelectedYear(year.id)}
               className={`relative mb-4 block w-full rounded-lg border px-4 py-3 text-left transition ${
                 activeYear.id === year.id
-                  ? "border-primary/50 bg-card text-foreground shadow-[0_0_0_1px_rgba(0,255,102,0.12)]"
-                  : "border-border bg-transparent text-muted-foreground hover:border-border hover:bg-card/60 hover:text-foreground"
+                  ? "border-cyan/50 bg-card text-foreground shadow-[0_0_0_1px_rgba(82,215,255,0.12)]"
+                  : "border-border bg-transparent text-muted-foreground hover:border-amber/35 hover:bg-card/60 hover:text-foreground"
               }`}
             >
               <span
                 className={`absolute -left-[1.72rem] top-1/2 size-3 -translate-y-1/2 rounded-full border ${
                   activeYear.id === year.id
-                    ? "border-primary bg-background"
+                    ? "border-cyan bg-background"
                     : "border-border bg-background"
                 }`}
               />
@@ -157,7 +152,7 @@ function TeamPage() {
 
         <div className="min-w-0">
           <div className="flex items-center gap-3">
-            <div className="size-3 rounded-full border border-primary/70 bg-background" />
+            <div className="size-3 rounded-full border border-amber/70 bg-background" />
             <h2 className="font-mono text-2xl font-bold">{activeYear.label}</h2>
           </div>
 
@@ -227,7 +222,7 @@ function TeamMember({
   role: string;
   org: string;
   linkedin: string;
-  quote: string;
+  quote?: string;
   headshot?: string;
 }) {
   const initials = name
@@ -237,7 +232,7 @@ function TeamMember({
     .slice(0, 2);
 
   return (
-    <div className="group relative min-w-0 max-w-72 overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:rounded-2xl hover:border-primary/50">
+    <div className="group relative min-w-0 max-w-72 overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:rounded-2xl hover:border-cyan/50">
       <div className="mx-auto size-28 overflow-hidden rounded-full border border-border bg-secondary">
         {headshot ? (
           <img
@@ -246,8 +241,8 @@ function TeamMember({
             className="size-full object-cover transition duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex size-full items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(0,255,102,0.24),transparent_42%),linear-gradient(135deg,hsl(var(--card)),hsl(var(--secondary)))]">
-            <span className="font-mono text-3xl font-bold text-primary">
+          <div className="flex size-full items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(82,215,255,0.22),transparent_42%),linear-gradient(135deg,var(--card),var(--secondary))]">
+            <span className="font-mono text-3xl font-bold text-cyan">
               {initials}
             </span>
           </div>
@@ -259,21 +254,23 @@ function TeamMember({
           href={linkedin}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex min-w-0 items-center justify-center gap-2 text-lg font-bold hover:text-primary transition"
+          className="inline-flex min-w-0 items-center justify-center gap-2 text-lg font-bold hover:text-cyan transition"
         >
           <span className="min-w-0 break-words">{name}</span>
           <LinkedInIcon />
         </a>
 
         <div className="mt-1 text-sm text-muted-foreground">{role}</div>
-        <div className="mt-3 inline-flex rounded-md border border-border px-2.5 py-1 text-xs font-semibold text-primary">
+        <div className="mt-3 inline-flex rounded-md border border-amber/35 px-2.5 py-1 text-xs font-semibold text-amber">
           {org}
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-2 bottom-2 translate-y-5 rounded-xl border border-primary/40 bg-background/95 p-3 opacity-0 shadow-lg backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-        <p className="text-xs text-foreground">"{quote}"</p>
-      </div>
+      {quote && (
+        <div className="pointer-events-none absolute inset-x-2 bottom-2 translate-y-5 rounded-xl border border-cyan/35 bg-background/95 p-3 opacity-0 shadow-lg backdrop-blur transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <p className="text-xs text-foreground">"{quote}"</p>
+        </div>
+      )}
     </div>
   );
 }

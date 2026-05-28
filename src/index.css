@@ -31,6 +31,8 @@
   --color-shpe: var(--shpe);
   --color-rpi: var(--rpi);
   --color-amber: var(--amber);
+  --color-cyan: var(--cyan);
+  --color-offwhite: var(--offwhite);
   --font-display: "VT323", "IBM Plex Mono", "Courier New", monospace;
   --font-mono: "VT323", "IBM Plex Mono", "Courier New", monospace;
 }
@@ -38,35 +40,37 @@
 :root {
   --radius: 0px;
 
-  /* Sponsorship packet palette: black terminal base, RPI red, logo green. */
+  /* Terminal base with campus/event signal colors. */
   --background: #050707;
   --foreground: #f7f7f2;
-  --card: #101819;
+  --card: #0d1517;
   --card-foreground: #f7f7f2;
-  --popover: #101819;
+  --popover: #0d1517;
   --popover-foreground: #f7f7f2;
   --primary: #00ff66;
   --primary-foreground: #031008;
-  --secondary: #141a1b;
+  --secondary: #111d21;
   --secondary-foreground: #f7f7f2;
-  --muted: #111718;
-  --muted-foreground: #c6c8bd;
-  --accent: #00ff66;
-  --accent-foreground: #031008;
+  --muted: #121819;
+  --muted-foreground: #c9cbbf;
+  --accent: #f6c445;
+  --accent-foreground: #120e02;
   --destructive: #e31d38;
   --destructive-foreground: oklch(0.985 0.01 102);
-  --border: rgb(0 255 102 / 24%);
-  --input: rgb(0 255 102 / 24%);
+  --border: rgb(247 247 242 / 16%);
+  --input: rgb(247 247 242 / 18%);
   --ring: #00ff66;
 
   --nsbe: #00ff66;
   --shpe: #f7f7f2;
   --rpi: #e31d38;
-  --amber: #00ff66;
+  --amber: #f6c445;
+  --cyan: #52d7ff;
+  --offwhite: #f7f7f2;
 
-  --gradient-hero: linear-gradient(120deg, #00ff66 0%, #f7f7f2 48%, #e31d38 100%);
-  --gradient-radial: radial-gradient(ellipse at center, rgb(0 255 102 / 16%), transparent 70%);
-  --shadow-glow: 0 0 0 1px rgb(0 255 102 / 70%), 0 0 28px rgb(0 255 102 / 32%);
+  --gradient-hero: linear-gradient(120deg, #00ff66 0%, #52d7ff 42%, #f6c445 68%, #e31d38 100%);
+  --gradient-radial: radial-gradient(ellipse at center, rgb(82 215 255 / 14%), transparent 70%);
+  --shadow-glow: 0 0 0 1px rgb(0 255 102 / 50%), 0 0 24px rgb(0 255 102 / 20%);
 }
 
 @layer base {
@@ -79,8 +83,10 @@
     min-width: 320px;
     margin: 0;
     background:
-      radial-gradient(circle at 18% 10%, rgb(0 255 102 / 8%), transparent 28rem),
-      radial-gradient(circle at 86% 16%, rgb(227 29 56 / 7%), transparent 26rem),
+      radial-gradient(circle at 18% 10%, rgb(0 255 102 / 6%), transparent 28rem),
+      radial-gradient(circle at 86% 16%, rgb(227 29 56 / 8%), transparent 26rem),
+      radial-gradient(circle at 52% 0%, rgb(82 215 255 / 7%), transparent 34rem),
+      radial-gradient(circle at 74% 52%, rgb(246 196 69 / 5%), transparent 26rem),
       linear-gradient(180deg, #080b0c, var(--background) 34rem);
     color: var(--foreground);
     font-family: var(--font-mono);
@@ -97,11 +103,11 @@
     overflow: hidden;
     border: 1px solid var(--border);
     background:
-      linear-gradient(180deg, rgb(16 24 25 / 92%), rgb(5 7 7 / 96%)),
+      linear-gradient(180deg, rgb(17 29 33 / 94%), rgb(5 7 7 / 96%)),
       var(--card);
     box-shadow:
       0 24px 80px rgb(0 0 0 / 45%),
-      inset 0 1px 0 rgb(255 255 255 / 8%);
+      inset 0 1px 0 rgb(247 247 242 / 10%);
   }
 
   .text-gradient-hero {

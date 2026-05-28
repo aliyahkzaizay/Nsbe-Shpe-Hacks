@@ -60,7 +60,7 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground transition"
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-cyan transition"
                   >
                     {link.label}
                   </a>
@@ -83,7 +83,7 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground transition"
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-amber transition"
                   >
                     {link.label}
                   </a>
